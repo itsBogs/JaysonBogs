@@ -21,7 +21,7 @@ document.querySelector('#year').textContent = new Date().getFullYear();
 (() => {
   const canvas = document.querySelector('.pacman-trail');
   const context = canvas?.getContext('2d');
-  if (!canvas || !context || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!canvas || !context) return;
 
   const MAX_DOTS = 48;
   const DOT_SPACING = 19;
@@ -103,7 +103,7 @@ document.querySelector('#year').textContent = new Date().getFullYear();
   }
 
   function setPointer(event) {
-  if (event.pointerType !== 'mouse' && event.pointerType !== 'touch') return;
+    if (event.pointerType !== 'mouse' && event.pointerType !== 'touch') return;
     trackPointer(event.clientX, event.clientY);
   }
 
@@ -218,8 +218,7 @@ document.querySelector('#year').textContent = new Date().getFullYear();
 (() => {
   const canvas = document.querySelector('.page-particles');
   const context = canvas?.getContext('2d', { alpha: true });
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  if (!canvas || !context || reducedMotion.matches) return;
+  if (!canvas || !context) return;
 
   const particles = [];
   const pointer = { x: -1000, y: -1000, active: false };
@@ -327,14 +326,6 @@ document.querySelector('#year').textContent = new Date().getFullYear();
       frame = 0;
     }
   });
-  reducedMotion.addEventListener?.('change', (event) => {
-    if (event.matches) {
-      if (frame) cancelAnimationFrame(frame);
-      frame = 0;
-      context.clearRect(0, 0, width, height);
-    } else start();
-  });
-
   resize();
 })();
 
