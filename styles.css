@@ -25,7 +25,7 @@
 main,.footer{position:relative;z-index:1}
 @media(max-width:700px){.hero-visual{min-height:390px}.portrait-frame{width:102px;height:142px;left:1%;bottom:20px}.portrait-initials{font-size:45px}.portrait-caption{font-size:7px}.code-card{transform:rotate(-1deg) translateX(7px)}.skill-graph{grid-template-columns:1fr;gap:14px;padding:8px 0}.graph-connectors{display:none}.graph-core{position:static;transform:none;grid-row:1;justify-self:start;margin:0 0 2px 2px}.skill-node{min-height:0;padding:17px}.skill-node:nth-of-type(2){grid-row:2}.skill-node:nth-of-type(3){grid-row:3}.skill-node:nth-of-type(4){grid-row:4}.skill-node:nth-of-type(5){grid-row:5}}
 
-@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.pacman-trail{display:none}}
+@media(prefers-reduced-motion:reduce){.pacman-trail{display:none}}
 
 .stack-list{position:relative;z-index:1;border-top:1px solid rgba(185,205,231,.1)}
 .stack-row{display:grid;grid-template-columns:minmax(170px,.58fr) 1.42fr;gap:30px;align-items:start;padding:24px 12px;border-bottom:1px solid rgba(185,205,231,.1)}
