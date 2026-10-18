@@ -107,6 +107,11 @@ document.querySelector('#year').textContent = new Date().getFullYear();
     trackPointer(event.clientX, event.clientY);
   }
 
+  function setTouch(event) {
+    const touch = event.touches[0] || event.changedTouches[0];
+    if (touch) trackPointer(touch.clientX, touch.clientY);
+  }
+
   function drawDot(dot, time) {
     const age = time - dot.born;
     const pulse = 1 + Math.sin(age * 0.008) * 0.12;
@@ -210,6 +215,8 @@ document.querySelector('#year').textContent = new Date().getFullYear();
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas, { passive: true });
   document.addEventListener('pointermove', setPointer, { passive: true });
+  document.addEventListener('touchstart', setTouch, { passive: true });
+  document.addEventListener('touchmove', setTouch, { passive: true });
   window.addEventListener('scroll', () => {
     if (pointer.active) trackPointer(pointer.x, pointer.y);
   }, { passive: true });
